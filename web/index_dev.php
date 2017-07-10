@@ -17,7 +17,6 @@ require_once __DIR__.'/../vendor/autoload.php';
 Debug::enable();
 
 $filename = __DIR__.preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
-$filename = str_replace(basename(__FILE__).'/', '', $filename);
 if (php_sapi_name() === 'cli-server' && is_file($filename)) {
     return false;
 }

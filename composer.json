@@ -34,7 +34,7 @@
     "scripts": {
         "run": [
             "echo 'Started photo-story on http://localhost:8888'",
-            "./front/node_modules/.bin/webpack --progress --watch --config ./front/webpack.config.js & php -S localhost:8888 -t web"
+            "cd front && ./node_modules/.bin/webpack --display-error-details --watch --config ./webpack.config.js & php -S localhost:8888 -t web"
         ],
         "post-install-cmd": [
             "cd front/ && npm i && cd ../",
