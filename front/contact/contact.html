@@ -1,0 +1,23 @@
+<div ng-controller="ContactController">
+    <form name="form" novalidate class="contact-form">
+        <label>Name</label>
+        <div ng-show="form.$submitted || form.name.$touched">
+            <span ng-show="form.name.$error.required">Name is required.</span>
+        </div>
+        <input type="text" name="name" ng-model="contact.msg.name" required />
+        <label>Email</label>
+        <div ng-show="form.$submitted || form.email.$touched">
+            <span ng-show="form.email.$error.required">Email is required.</span>
+            <span ng-show="form.email.$error.email">Email is not valid.</span>
+        </div>
+        <input type="email" name="email" ng-model="contact.msg.email" required />
+        <label>Your question</label>
+        <div ng-show="form.$submitted || form.content.$touched">
+            <span ng-show="form.content.$error.required">Question is required.</span>
+            <span ng-show="form.content.$error.minlength">Question must have at least 3 characters.</span>
+        </div>
+        <textarea name="content" minlength="3" ng-model="contact.msg.content" required></textarea>
+        <input type="button" ng-click="contact.reset()" value="Reset" />
+        <input type="submit" class="button-primary" ng-disabled="form.$invalid" ng-click="contact.submit(contact.msg)" value="Submit" />
+    </form>
+</div>

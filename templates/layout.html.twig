@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html ng-app="photoStoryApp">
+<html ng-app="photostoryApp">
     <head>
         <title>{% block title '' %} - Photo story</title>
 
         <link href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet" type="text/css" />
         <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css" />
-
+        <base href="/">
     </head>
     <body>
         <nav>
             <div id="logo">Photo story</div>
             <ul>
                 <li>
-                    <a href="">Gallery</a>
+                    <a ui-sref="gallery" ui-sref-active="active">Gallery</a>
                 </li>
                 <li>
-                    <a href="">Contact</a>
+                    <a ui-sref="contact" ui-sref-active="active">Contact</a>
                 </li>
             </ul>
         </nav>

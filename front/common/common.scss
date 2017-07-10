@@ -1,0 +1,16 @@
+$error-color: red;
+$primary-inactive-color: #7c898d;
+$primary-inactive-font-color: lighten($primary-inactive-color, 30);
+
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border-color: $error-color;
+}
+
+button[disabled].button-primary,
+input[type=submit][disabled].button-primary {
+  background-color: $primary-inactive-color;
+  border-color: $primary-inactive-color;
+  color: $primary-inactive-font-color;
+}
