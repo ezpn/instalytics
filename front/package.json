@@ -1,0 +1,21 @@
+{
+  "name": "photo-story",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Urban",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.1.0"
+  },
+  "dependencies": {
+    "angular": "^1.5.11",
+    "angular-route": "^1.6.5",
+    "lodash": "^4.17.4"
+  }
+}

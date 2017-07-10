@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="photoStoryApp">
+    <head>
+        <title>{% block title '' %} - Photo story</title>
+
+        <link href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css" />
+
+    </head>
+    <body>
+        <nav>
+            <div id="logo">Photo story</div>
+            <ul>
+                <li>
+                    <a href="">Gallery</a>
+                </li>
+                <li>
+                    <a href="">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        {% block content %}{% endblock %}
+        <script src="js/bundle.js"></script>
+    </body>
+</html>
