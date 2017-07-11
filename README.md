@@ -1,7 +1,8 @@
 # Photo Story
 
 ## Requirements
-- `PHP 5.6+`
+- `PHP 5.6+` with following extensions:
+    - curl
 - `Node.js 6.10+`
 
 ## Installation

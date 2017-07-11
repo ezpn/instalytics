@@ -14,6 +14,15 @@ $app->get('/', function () use ($app) {
 ->bind('homepage')
 ;
 
+$app->before(function (Request $request) {
+    if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
+        $data = json_decode($request->getContent(), true);
+        $request->request->replace(is_array($data) ? $data : []);
+    }
+});
+
+$app->mount('/api/contact', new PhotoStoryBundle\ContactControllerProvider());
+
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;
