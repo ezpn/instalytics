@@ -2,6 +2,7 @@
 
 namespace CommonBundle;
 
+use Exception;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Mailgun\Mailgun;
