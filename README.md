@@ -3,6 +3,7 @@
 ## Requirements
 - `PHP 5.6+` with following extensions:
     - curl
+    - mbstring
 - `Node.js 6.10+`
 
 ## Installation

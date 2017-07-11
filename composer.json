@@ -25,7 +25,9 @@
         "mailgun/mailgun-php": "^2.3",
         "php-http/curl-client": "^1.7",
         "guzzlehttp/psr7": "^1.4",
-        "lokhman/silex-config": "^2.0"
+        "lokhman/silex-config": "^2.0",
+        "armetiz/airtable-php": "^0.3.1",
+        "crisu83/shortid": "*"
     },
     "autoload": {
         "psr-0": { "": "src/" }

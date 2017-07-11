@@ -6,6 +6,9 @@ use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use PhotoStoryBundle\Model\Question;
+use PhotoStoryBundle\Model\EmailQuestionAdapter;
+use PhotoStoryBundle\Model\OnlineQuestionAdapter;
 
 class ContactControllerProvider implements ControllerProviderInterface
 {
@@ -16,15 +19,20 @@ class ContactControllerProvider implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->post('/', function (Request $request) use ($app) {
-            $message = [
-              'from' => "{$app['email.defaults']['from']['name']} <{$app['email.defaults']['from']['email']}>",
-              'to' => $app['email.defaults']['to']['email'],
-              'subject' => self::DEFAULT_SUBJECT,
-              'text' => $request->request->get('content'),
-              'h:reply-to' => "{$request->request->get('name')} <{$request->request->get('email')}>",
-            ];
+            $question = (new Question())->setName($request->request->get('name'))
+                ->setEmail($request->request->get('email'))
+                ->setSubject(self::DEFAULT_SUBJECT)
+                ->setContent($request->request->get('content'));
 
-            $app['emailService']->send($message);
+            $emailData = (new EmailQuestionAdapter($question))->getData();
+            $emailData['from'] = "{$app['email.defaults']['from']['name']} <{$app['email.defaults']['from']['email']}>";
+            $emailData['to'] = $app['email.defaults']['to']['email'];
+
+            $onlineQuestion = new OnlineQuestionAdapter($question);
+
+            $app['emailService']->send($emailData);
+            $app['repositoryManager']->get('OnlineQuestionRepository')
+                ->persist($onlineQuestion);
 
             return new Response(Response::HTTP_OK);
         });
