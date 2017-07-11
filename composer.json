@@ -21,7 +21,11 @@
         "symfony/security": "~2.8|^3.0",
         "symfony/translation": "~2.8|^3.0",
         "symfony/twig-bridge": "~2.8|^3.0",
-        "symfony/validator": "~2.8|^3.0"
+        "symfony/validator": "~2.8|^3.0",
+        "mailgun/mailgun-php": "^2.3",
+        "php-http/curl-client": "^1.7",
+        "guzzlehttp/psr7": "^1.4",
+        "lokhman/silex-config": "^2.0"
     },
     "autoload": {
         "psr-0": { "": "src/" }
@@ -34,7 +38,7 @@
     "scripts": {
         "run": [
             "echo 'Started photo-story on http://localhost:8888'",
-            "cd front && ./node_modules/.bin/webpack --display-error-details --watch --config ./webpack.config.js & php -S localhost:8888 -t web"
+            "cd front && ./node_modules/.bin/webpack --display-error-details --watch --config ./webpack.config.js & SILEX_ENV=dev php -S localhost:8888 -t web"
         ],
         "post-install-cmd": [
             "cd front/ && npm i && cd ../",

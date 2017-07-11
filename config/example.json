@@ -1,0 +1,20 @@
+{
+  "env": "%__ENV__%",
+  "debug": true,
+  "mailgun": {
+    "key": "mailgun-secret-key"
+  },
+  "email.defaults": {
+    "from": {
+      "name": "Mailing service",
+      "email": "postmaster@mydomain.com"
+    },
+    "to": {
+      "email": "defaultreceiveemail@mydomain.com"
+    }
+  },
+  "twig.path": ["%__DIR__%/../templates"],
+  "twig.options": {
+    "cache": "%__DIR__%/../var/cache/twig"
+  }
+}

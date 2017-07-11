@@ -1,6 +1,8 @@
 <?php
 
 use Symfony\Component\Debug\Debug;
+use Silex\Provider\MonologServiceProvider;
+use Silex\Provider\WebProfilerServiceProvider;
 
 // This check prevents access to debug front controllers that are deployed by accident to production servers.
 // Feel free to remove this, extend it, or make something more sophisticated.
@@ -22,6 +24,14 @@ if (php_sapi_name() === 'cli-server' && is_file($filename)) {
 }
 
 $app = require __DIR__.'/../src/app.php';
-require __DIR__.'/../config/dev.php';
+
+$app->register(new MonologServiceProvider(), array(
+    'monolog.logfile' => __DIR__.'/../var/logs/silex_dev.log',
+));
+
+$app->register(new WebProfilerServiceProvider(), array(
+    'profiler.cache_dir' => __DIR__.'/../var/cache/profiler',
+));
+
 require __DIR__.'/../src/controllers.php';
 $app->run();

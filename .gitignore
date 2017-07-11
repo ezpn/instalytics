@@ -1,3 +1,9 @@
+# Vendors
 /vendor/
 
+# Compiled frontend files
 /web/js
+
+# Configuration files
+/config/*.json
+!/config/*example*.json
