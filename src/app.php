@@ -10,6 +10,7 @@ use CommonBundle\MailgunServiceProvider;
 use CommonBundle\AirtableServiceProvider;
 use CommonBundle\RepositoryManager;
 use PhotoStoryBundle\EmailService;
+use Silex\Provider\ValidatorServiceProvider;
 
 $app = new Application();
 $app->register(new ConfigServiceProvider(), [
@@ -21,6 +22,7 @@ $app->register(new ServiceControllerServiceProvider());
 $app->register(new AssetServiceProvider());
 $app->register(new TwigServiceProvider());
 $app->register(new HttpFragmentServiceProvider());
+$app->register(new ValidatorServiceProvider());
 
 $app['emailService'] = function () use ($app) {
     return new EmailService($app);

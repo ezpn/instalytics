@@ -24,6 +24,12 @@ class ContactControllerProvider implements ControllerProviderInterface
                 ->setSubject(self::DEFAULT_SUBJECT)
                 ->setContent($request->request->get('content'));
 
+            $errors = $app['validator']->validate($question);
+
+            if (count($errors) > 0) {
+                return new Response(Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
+
             $emailData = (new EmailQuestionAdapter($question))->getData();
             $emailData['from'] = "{$app['email.defaults']['from']['name']} <{$app['email.defaults']['from']['email']}>";
             $emailData['to'] = $app['email.defaults']['to']['email'];

@@ -4,6 +4,8 @@ namespace PhotoStoryBundle\Model;
 
 use DateTime;
 use DateTimeZone;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Question
 {
@@ -81,5 +83,21 @@ class Question
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    static public function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('name', new Assert\NotBlank());
+        $metadata->addPropertyConstraint('name', new Assert\Length(['min' => 1, 'max' => 255]));
+
+        $metadata->addPropertyConstraint('email', new Assert\NotBlank());
+        $metadata->addPropertyConstraint('email', new Assert\Email());
+        $metadata->addPropertyConstraint('email', new Assert\Length(['max' => 255]));
+
+        $metadata->addPropertyConstraint('subject', new Assert\NotBlank());
+        $metadata->addPropertyConstraint('subject', new Assert\Length(['min' => 1, 'max' => 255]));
+
+        $metadata->addPropertyConstraint('content', new Assert\NotBlank());
+        $metadata->addPropertyConstraint('content', new Assert\Length(['min' => 3, 'max' => 100000]));
     }
 }

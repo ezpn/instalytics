@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e102ba6abbed002cfdaec8b07eaba56c",
+    "content-hash": "c42391b2c64608f3c0168849ae666aab",
     "packages": [
         {
             "name": "armetiz/airtable-php",
