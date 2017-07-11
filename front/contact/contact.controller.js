@@ -1,5 +1,6 @@
 export default class ContactController {
-  constructor() {
+  constructor(ContactService) {
+    this.contactService = ContactService;
     this.message = {};
     this.msg = {};
   }
@@ -10,6 +11,8 @@ export default class ContactController {
 
   submit(msg) {
     this.message = angular.copy(msg);
-    console.log('Submitted form', this.message);
+    this.contactService.post(this.message);
   }
 }
+
+ContactController.$inject = ['contactService'];
