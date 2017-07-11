@@ -3,6 +3,8 @@
 use Symfony\Component\Debug\Debug;
 use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
+use Symfony\Component\Debug\ErrorHandler;
+use Symfony\Component\Debug\ExceptionHandler;
 
 // This check prevents access to debug front controllers that are deployed by accident to production servers.
 // Feel free to remove this, extend it, or make something more sophisticated.
@@ -17,6 +19,8 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
 require_once __DIR__.'/../vendor/autoload.php';
 
 Debug::enable();
+ErrorHandler::register();
+ExceptionHandler::register();
 
 $filename = __DIR__.preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
 if (php_sapi_name() === 'cli-server' && is_file($filename)) {
