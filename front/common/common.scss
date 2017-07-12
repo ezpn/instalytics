@@ -68,6 +68,13 @@ textarea.ng-invalid.ng-touched {
   border-color: $error-color;
 }
 
+button[disabled], input[type=submit][disabled] {
+  cursor: not-allowed;
+  background-color: white;
+  border-color: $primary-inactive-font-color;
+  color: $primary-inactive-font-color;
+}
+
 button[disabled].button-primary,
 input[type=submit][disabled].button-primary {
   background-color: $primary-inactive-color;
