@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class GalleryControllerProvider implements ControllerProviderInterface
 {
+    const INSTAGRAM_MAX_RESULTS = 5;
+
     public function connect(Application $app)
     {
         $controllers = $app['controllers_factory'];
@@ -29,12 +31,7 @@ class GalleryControllerProvider implements ControllerProviderInterface
 
             $instagram->setAccessToken($token);
 
-            $userMedia = $instagram->getUserMedia('self');
-
-            // Tried to quickfix pagination, but it requires bigger changes to
-            // actually work
-            $userMedia->pagination->next_url = 'users/self/media/recent?';
-            $userMedia->pagination->next_max_id = $userMedia->data[count($userMedia->data) - 1]->id;
+            $userMedia = $instagram->getUserMedia('self', 10);
 
             while ($page--) {
                 $userMedia = $instagram->pagination($userMedia);
