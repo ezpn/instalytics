@@ -9,9 +9,9 @@
         <base href="/">
     </head>
     <body>
-        <nav>
-            <div id="logo">Photo story</div>
-            <ul>
+        <nav class="clearfix">
+            <h4 id="logo" class="fleft">Photo story</h4>
+            <ul class="fleft">
                 <li>
                     <a ui-sref="gallery" ui-sref-active="active">Gallery</a>
                 </li>
@@ -20,8 +20,9 @@
                 </li>
             </ul>
         </nav>
-        {% block content %}{% endblock %}
-        <footer>Copyright (c) 2017 Photo Story</footer>
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
         <script src="{{ asset('js/bundle.js') }}"></script>
     </body>
 </html>
