@@ -11,6 +11,8 @@ To install project, open command line and type:
 
 `php composer.phar install`
 
+Copy `config/example.json` as `config/dev.json` and `config/prod.json` and fill required confguration.
+
 
 ## Development
 To start developing project, open command lint and type:
