@@ -16,5 +16,15 @@
   "twig.path": ["%__DIR__%/../templates"],
   "twig.options": {
     "cache": "%__DIR__%/../var/cache/twig"
+  },
+  "airtable": {
+    "key": "airtable-key",
+    "base": "airtable-base"
+  },
+  "instagram": {
+    "apiKey": "apiKey",
+    "apiSecret": "apiSecret",
+    "apiCallback": "http://localhost:8888",
+    "scope": ["basic"]
   }
 }
