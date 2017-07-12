@@ -1,27 +1,43 @@
-<div ng-controller="ContactController">
-    <form name="form" novalidate class="contact-form">
-        <label>Name</label>
-        <div ng-show="form.$submitted || form.name.$touched">
-            <span ng-show="form.name.$error.required">Name is required.</span>
-            <span ng-show="form.name.$error.minlength">Name must have at least 3 characters.</span>
-            <span ng-show="form.name.$error.maxlength">Name must have at most 255 characters.</span>
-        </div>
-        <input type="text" name="name" minlength="1" maxlength="255" ng-model="contact.msg.name" required />
-        <label>Email</label>
-        <div ng-show="form.$submitted || form.email.$touched">
-            <span ng-show="form.email.$error.required">Email is required.</span>
-            <span ng-show="form.email.$error.email">Email is not valid.</span>
-            <span ng-show="form.email.$error.maxlength">Email must have at most 255 characters.</span>
-        </div>
-        <input type="email" name="email" maxlength="255" ng-model="contact.msg.email" required />
-        <label>Your question</label>
-        <div ng-show="form.$submitted || form.content.$touched">
-            <span ng-show="form.content.$error.required">Question is required.</span>
-            <span ng-show="form.content.$error.minlength">Question must have at least 3 characters.</span>
-            <span ng-show="form.content.$error.maxlength">Question must have at most 100000 characters.</span>
-        </div>
-        <textarea name="content" minlength="3" maxlength="100000" ng-model="contact.msg.content" required></textarea>
-        <input type="button" ng-click="contact.reset()" value="Reset" />
-        <input type="submit" class="button-primary" ng-disabled="form.$invalid" ng-click="contact.submit(contact.msg)" value="Submit" />
-    </form>
+<div class="row contact" ng-controller="ContactController">
+    <div class="twelve columns">
+        <form name="form" novalidate class="contact-form">
+            <div class="row">
+                <div class="six columns">
+                    <label>Name</label>
+                    <div ng-show="form.$submitted || form.name.$touched">
+                        <span ng-show="form.name.$error.required">Name is required.</span>
+                        <span ng-show="form.name.$error.minlength">Name must have at least 3 characters.</span>
+                        <span ng-show="form.name.$error.maxlength">Name must have at most 255 characters.</span>
+                    </div>
+                    <input type="text" class="u-full-width" name="name" minlength="1" maxlength="255" ng-model="contact.msg.name" required />
+                </div>
+                <div class="six columns">
+                    <label>Email</label>
+                    <div ng-show="form.$submitted || form.email.$touched">
+                        <span ng-show="form.email.$error.required">Email is required.</span>
+                        <span ng-show="form.email.$error.email">Email is not valid.</span>
+                        <span ng-show="form.email.$error.maxlength">Email must have at most 255 characters.</span>
+                    </div>
+                    <input type="email" class="u-full-width" name="email" maxlength="255" ng-model="contact.msg.email" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <label>Your question</label>
+                    <div ng-show="form.$submitted || form.content.$touched">
+                        <span ng-show="form.content.$error.required">Question is required.</span>
+                        <span ng-show="form.content.$error.minlength">Question must have at least 3 characters.</span>
+                        <span ng-show="form.content.$error.maxlength">Question must have at most 100000 characters.</span>
+                    </div>
+                    <textarea rows="10" class="u-full-width question" name="content" minlength="3" maxlength="100000" ng-model="contact.msg.content" required></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <input type="button" ng-click="contact.reset()" value="Reset" />
+                    <input type="submit" class="button-primary" ng-disabled="form.$invalid" ng-click="contact.submit(contact.msg)" value="Submit" />
+                </div>
+            </div>
+        </form>
+    </div>
 </div>

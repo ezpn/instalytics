@@ -59,6 +59,10 @@ nav {
   }
 }
 
+.question {
+  height: 200px;
+}
+
 input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
   border-color: $error-color;
