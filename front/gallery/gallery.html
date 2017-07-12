@@ -5,6 +5,6 @@
             <img src="{{picture.images.thumbnail.url}}" />
         </li>
     </ul>
-    <button ng-click="gallery.prev()">< Previous</button>
-    <button ng-click="gallery.next()">Next ></button>
+    <button ng-if="gallery.page > 0" ng-click="gallery.prev()">< Previous</button>
+    <button ng-disabled="1" ng-click="gallery.next()">Next ></button>
 </div>
