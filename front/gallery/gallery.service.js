@@ -7,7 +7,7 @@ export default class GalleryService extends ApiService {
   }
 
   getAll(params) {
-    return this.$http.get(this.url, params);
+    return this.$http.get(this.url, { params });
   }
 }
 

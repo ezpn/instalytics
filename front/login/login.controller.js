@@ -1,6 +1,7 @@
 export default class LoginController {
-  constructor($auth, loginService) {
+  constructor($auth, $state, loginService) {
     this.$auth = $auth;
+    this.$state = $state;
     this.loginService = loginService;
   }
 
@@ -8,8 +9,12 @@ export default class LoginController {
     this.$auth.authenticate(provider)
       .then((response) => {
         this.loginService.storeToken(response.data);
+      })
+      .then(() => {
+        // Previous state should be saved
+        this.$state.go('gallery');
       });
   }
 }
 
-LoginController.$inject = ['$auth', 'loginService'];
+LoginController.$inject = ['$auth', '$state', 'loginService'];
