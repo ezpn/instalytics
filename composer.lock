@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c42391b2c64608f3c0168849ae666aab",
+    "content-hash": "63370be17fc181d6bfe2ea922b5fa676",
     "packages": [
+        {
+            "name": "andreyco/instagram",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Andreyco/Instagram-for-PHP.git",
+                "reference": "49b545a964686e8da53499d49886ace5e9556e49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Andreyco/Instagram-for-PHP/zipball/49b545a964686e8da53499d49886ace5e9556e49",
+                "reference": "49b545a964686e8da53499d49886ace5e9556e49",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Andreyco\\Instagram\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-4-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Andrej Badin",
+                    "email": "contact@andrejbadin.com",
+                    "homepage": "http://andrejbadin.com"
+                }
+            ],
+            "description": "An easy-to-use PHP Class for accessing Instagram's API.",
+            "homepage": "https://github.com/Andreyco/Instagram-for-PHP",
+            "keywords": [
+                "api",
+                "instagram"
+            ],
+            "time": "2017-07-04T17:51:56+00:00"
+        },
         {
             "name": "armetiz/airtable-php",
             "version": "0.3.1",
@@ -196,6 +239,52 @@
                 }
             ],
             "time": "2017-06-07T13:04:21+00:00"
+        },
+        {
+            "name": "firebase/php-jwt",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+                "reference": "9984a4d3a32ae7673d6971ea00bae9d0a1abba0e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": " 4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "time": "2017-06-27T22:17:23+00:00"
         },
         {
             "name": "guzzlehttp/psr7",

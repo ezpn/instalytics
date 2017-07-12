@@ -5,6 +5,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Firebase\JWT\JWT;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 
@@ -14,6 +15,16 @@ $app->get('/', function () use ($app) {
 ->bind('homepage')
 ;
 
+$app->post('/auth/instagram', function (Request $request) use ($app) {
+    $code = $request->request->get('code');
+
+    $data = $app['instagramService']->getOAuthToken($code);
+    $accessToken = $data->access_token;
+    $app['instagramStorageService']->saveAccessToken($accessToken);
+
+    return JWT::encode($accessToken, $app['config']['instagram']['apiSecret']);
+});
+
 $app->before(function (Request $request) {
     if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
         $data = json_decode($request->getContent(), true);
@@ -22,6 +33,7 @@ $app->before(function (Request $request) {
 });
 
 $app->mount('/api/contact', new PhotoStoryBundle\ContactControllerProvider());
+$app->mount('/api/gallery', new PhotoStoryBundle\GalleryControllerProvider());
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {

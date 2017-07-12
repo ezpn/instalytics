@@ -27,7 +27,7 @@ class ContactControllerProvider implements ControllerProviderInterface
             $errors = $app['validator']->validate($question);
 
             if (count($errors) > 0) {
-                return new Response(Response::HTTP_UNPROCESSABLE_ENTITY);
+                $app->abort(Response::HTTP_UNPROCESSABLE_ENTITY);
             }
 
             $emailData = (new EmailQuestionAdapter($question))->getData();
