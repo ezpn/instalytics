@@ -9,14 +9,20 @@
         <base href="/">
     </head>
     <body>
-        <nav class="clearfix">
-            <h4 id="logo" class="fleft">Photo story</h4>
+        <nav class="clearfix" ng-controller="NavController as nav">
+            <h4 id="logo" ui-sref="home" class="fleft">Photo story</h4>
             <ul class="fleft">
                 <li>
                     <a ui-sref="gallery" ui-sref-active="active">Gallery</a>
                 </li>
                 <li>
                     <a ui-sref="contact" ui-sref-active="active">Contact</a>
+                </li>
+            </ul>
+            <ul class="fright">
+                <li>
+                    <a ng-if="!nav.isLoggedIn" ui-sref="login" ui-sref-active="active">Login</a>
+                    <a ng-if="nav.isLoggedIn" ui-sref="logout" ui-sref-active="active">Logout</a>
                 </li>
             </ul>
         </nav>

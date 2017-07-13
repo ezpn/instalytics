@@ -6,11 +6,12 @@ export default class GalleryController {
     this.page = 0;
     this.isLastPage = false;
     this.isLoading = true;
+    this.loginService = loginService;
     this.galleryService = gallery;
 
     this.initializePictures();
 
-    loginService.authenticate()
+    this.loginService.authenticate()
       .then(() => this.updatePhotos());
   }
 
@@ -58,6 +59,12 @@ export default class GalleryController {
 
         this.pictures = media.data.data;
         this.isLoading = false;
+      })
+      .catch((err) => {
+        console.log('error', err);
+        if (err.status === 401) {
+          this.loginService.redirectToLogin();
+        }
       });
   }
 

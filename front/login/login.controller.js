@@ -8,7 +8,7 @@ export default class LoginController {
   authenticate(provider) {
     this.$auth.authenticate(provider)
       .then((response) => {
-        this.loginService.storeToken(response.data);
+        this.loginService.login(response.data);
       })
       .then(() => {
         // Previous state should be saved

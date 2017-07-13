@@ -8,10 +8,9 @@ export default function routes($stateProvider) {
       controller: 'LoginController',
       controllerAs: 'login',
     })
-    .state('accessToken', {
-      url: '/login/access_token=:accessToken',
-      template: require('./login.html'),
-      controller: 'LoginController',
-      controllerAs: 'login',
+    .state('logout', {
+      url: '/logout',
+      controller: 'LogoutController',
+      controllerAs: 'logout',
     });
 }
