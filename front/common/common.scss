@@ -1,8 +1,4 @@
-$error-color: red;
-$primary-inactive-color: #7c898d;
-$primary-inactive-font-color: lighten($primary-inactive-color, 30);
-
-$navbar-height: 60px;
+@import 'variables';
 
 html, body {
   margin: 0;
@@ -29,7 +25,7 @@ nav {
   width: 100%;
   padding: 0 20px;
   height: $navbar-height;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $very-light;
   #logo {
     margin: 0;
     padding: 0;
@@ -49,16 +45,6 @@ nav {
 
 .container {
   padding: 20px;
-}
-
-.gallery {
-  ul {
-    li {
-      display: inline-block;
-      list-style: none;
-      padding: 15px 15px;
-    }
-  }
 }
 
 .question {

@@ -1,5 +1,6 @@
 import angular from 'angular';
 import uirouter from '@uirouter/angularjs';
+import './gallery.scss'
 
 import routing from './gallery.routes';
 import GalleryController from './gallery.controller';

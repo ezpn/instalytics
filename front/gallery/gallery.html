@@ -3,10 +3,19 @@
         <h2>Gallery</h2>
         <ul>
             <li ng-repeat="picture in gallery.pictures">
-                <img src="{{picture.images.thumbnail.url}}" />
+                <div class="image" ng-if="!!picture.images.thumbnail.url" ng-style="{'background-image': 'url(' + picture.images.thumbnail.url + ')'}">
+                    <div class="whirlpool" ng-if="gallery.isLoading">
+                        <div class="cssload-whirlpool"></div>
+                    </div>
+                </div>
+                <div class="image" ng-if="!picture.images.thumbnail.url">
+                    <div class="whirlpool" ng-if="gallery.isLoading">
+                        <div class="cssload-whirlpool"></div>
+                    </div>
+                </div>
             </li>
         </ul>
-        <button ng-if="gallery.page > 0" ng-click="gallery.prev()">< Previous</button>
-        <button ng-if="!gallery.isLastPage" ng-click="gallery.next()">Next ></button>
+        <button ng-disabled="gallery.isLoading" ng-if="gallery.page > 0" ng-click="gallery.prev()">< Previous</button>
+        <button ng-disabled="gallery.isLoading" ng-if="!gallery.isLastPage" ng-click="gallery.next()">Next ></button>
     </div>
 </div>

@@ -14,6 +14,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
+        sourceMap: true,
         use: [
           {
             loader: 'babel-loader',
@@ -27,6 +28,8 @@ module.exports = {
         use: [ 'html-loader' ]
       }, {
         test: /\.scss$/,
+        sourceMap: true,
+        data: '@import "variables";',
         use: [{
             loader: "style-loader"
           }, {
