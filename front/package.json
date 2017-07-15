@@ -26,7 +26,9 @@
   "dependencies": {
     "@uirouter/angularjs": "^1.0.5",
     "angular": "^1.5.11",
+    "angular-google-chart": "git+https://github.com/angular-google-chart/angular-google-chart.git",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "satellizer": "^0.15.5"
   }
 }

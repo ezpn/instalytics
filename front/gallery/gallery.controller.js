@@ -1,16 +1,21 @@
 import angular from 'angular';
 
 export default class GalleryController {
-  constructor(loginService, gallery) {
+  constructor(loginService, chartService, gallery) {
     this.pictures = [];
     this.page = 0;
     this.isLastPage = false;
     this.isLoading = true;
     this.loginService = loginService;
     this.galleryService = gallery;
-
+    this.chartService = chartService;
+    this.likeChart = {};
+    this.tagChart = {};
     this.initializePictures();
+    this.checkAuth();
+  }
 
+  checkAuth() {
     this.loginService.authenticate()
       .then(() => this.updatePhotos());
   }
@@ -59,6 +64,12 @@ export default class GalleryController {
 
         this.pictures = media.data.data;
         this.isLoading = false;
+
+        return media;
+      })
+      .then((media) => {
+        this.likeChart = this.chartService.getLikeChart(media.data.data);
+        this.tagChart = this.chartService.getTagChart(media.data.data);
       })
       .catch((err) => {
         console.log('error', err);
@@ -73,4 +84,4 @@ export default class GalleryController {
   }
 }
 
-GalleryController.$inject = ['loginService', 'galleryService'];
+GalleryController.$inject = ['loginService', 'chartService', 'galleryService'];

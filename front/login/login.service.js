@@ -5,7 +5,6 @@ export default class LoginService {
     this.$state = $state;
     this.$timeout = $timeout;
     this.setIsLoggedIn(this.checkAuth());
-    console.log('Logged in state', this.isLoggedIn);
   }
 
   setIsLoggedIn(isLoggedIn) {
@@ -44,7 +43,8 @@ export default class LoginService {
   logout() {
     localStorage.removeItem(this.localStorageKey);
     this.setIsLoggedIn(false);
-    console.log('Im logged out');
+
+    // @todo Fix gallery protection!
 
     return this.$state.go('home');
   }

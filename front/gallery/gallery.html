@@ -1,6 +1,8 @@
-<div class="row gallery" ng-controller="GalleryController">
+<div class="row gallery" ng-controller="GalleryController" ng-init="checkAuth()">
     <div class="twelve columns">
         <h2>Gallery</h2>
+        <div google-chart chart="gallery.likeChart" style="height:200px; width:100%;"></div>
+        <div google-chart chart="gallery.tagChart" style="height:300px; width:500px;"></div>
         <ul>
             <li ng-repeat="picture in gallery.pictures">
                 <div class="image" ng-if="!!picture.images.thumbnail.url" ng-style="{'background-image': 'url(' + picture.images.thumbnail.url + ')'}">
